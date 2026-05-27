@@ -14,16 +14,18 @@ Simple Node.js / Express backend for employee and user management using MongoDB.
 
 - Node.js 18+ / 20+
 - MongoDB connection string
+- `.env` file with required values
 
 ## Setup
 
-1. Install dependencies:
+1. Clone or download the repository.
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. Create a `.env` file in the project root with at least:
+3. Create a `.env` file in the project root with the following values:
 
 ```env
 MONGO_URL=<your-mongodb-connection-string>
@@ -46,7 +48,7 @@ Start the server with:
 npm start
 ```
 
-By default, the app listens on `PORT` or `3000`.
+The app listens on the `PORT` environment variable or defaults to `3000`.
 
 ## API Endpoints
 
