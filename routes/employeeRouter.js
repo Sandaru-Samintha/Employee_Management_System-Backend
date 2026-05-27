@@ -6,7 +6,7 @@ import {
   deleteEmployee,
   updateEmployee,
   getEmployeeById
-} from "../controllers/employeeController.js"; // employee controller functions import karanawa
+} from "../controllers/employeeController.js";
 
 const employeeRouter = express.Router();
 

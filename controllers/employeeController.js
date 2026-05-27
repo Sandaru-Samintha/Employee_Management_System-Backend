@@ -30,7 +30,16 @@ export const saveEmployee = async (req, res) => {
       message: "Employee saved successfully"
     });
   } catch (error) {
-    res.status(500).json({
+    if (error.name === "MongoServerError" && error.code === 11000) {
+      const duplicateField = Object.keys(error.keyValue)[0];
+      return res.status(400).json({
+        status: "error",
+        message: `Employee ${duplicateField} already exists.`,
+        field: duplicateField
+      });
+    }
+
+    return res.status(500).json({
       status: "error",
       message: "Internal server error",
       error: error

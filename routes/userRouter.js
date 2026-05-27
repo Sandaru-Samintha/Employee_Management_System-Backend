@@ -1,7 +1,6 @@
 import express from 'express';
 
-import { saveUser ,getAllUsers ,userLogin, registerUser } from '../controllers/userController.js'; // userController eke functions tika import karanawa   
-
+import { saveUser ,getAllUsers ,userLogin, registerUser } from '../controllers/userController.js'; 
 const userRouter = express.Router();
 
 userRouter.post('/saveuser', saveUser);

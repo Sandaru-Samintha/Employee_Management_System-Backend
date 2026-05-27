@@ -27,7 +27,8 @@ const EmployeeSchema = mongoose.Schema({
   },
   phoneNumber: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   }
 });
 
