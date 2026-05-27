@@ -1,4 +1,4 @@
-import Employee from "../models/employee.js"; 
+import Employee from "../models/employee.js";
 import { isAdmin } from "./userController.js";
 
 // ==================================================
@@ -52,19 +52,20 @@ export const saveEmployee = async (req, res) => {
 // ==================================================
 export const getEmployees = async (req, res) => {
   try {
-    if (isAdmin(req, res)) {
-      const employees = await Employee.find();
-      return res.status(200).json({
-        status: "success",
-        data: employees
-      });
+    let employees;
+
+    if (req.userData) {
+      // Authenticated users (admin and regular users) can see all employees
+      employees = await Employee.find();
     } else {
-      const employees = await Employee.find({ status: "Active" });
-      return res.status(200).json({
-        status: "success",
-        data: employees
-      });
+      // Unauthenticated visitors only see active employees
+      employees = await Employee.find({ status: "Active" });
     }
+
+    return res.status(200).json({
+      status: "success",
+      data: employees
+    });
   } catch (error) {
     return res.status(500).json({
       status: "error",

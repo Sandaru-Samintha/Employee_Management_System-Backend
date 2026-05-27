@@ -84,7 +84,7 @@ export const userLogin = async (req, res) => {
 
     const isPasswordCorrect = bcrypt.compareSync(password, user.password);
 
-    if (isPasswordCorrect) {   
+    if (isPasswordCorrect) {
 
      // Generate JWT token --------------------------------------------------
 
@@ -111,7 +111,7 @@ export const userLogin = async (req, res) => {
           role: user.role,
           firstName: user.firstName,  
           lastName: user.lastName,     
-          email: user.email            
+          email: user.email 
         });
 
     }else {
@@ -157,7 +157,7 @@ export const registerUser = async (req, res) => {
       email : req.body.email,
       firstName : req.body.firstName,
       lastName : req.body.lastName,
-      password : hashPassword,    
+      password : hashPassword,
       role : req.body.role
      });
 
@@ -180,7 +180,7 @@ export const registerUser = async (req, res) => {
 };
 
 
-// ==================================================       
+// ================================================== 
 // GET : FETCH ALL USERS
 // ==================================================
 export const getAllUsers = async (req, res) => {
