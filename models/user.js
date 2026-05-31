@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const UserSchema = mongoose.Schema(    
+const UserSchema = mongoose.Schema(
    {
       email :{
             type: String,
@@ -10,12 +10,12 @@ const UserSchema = mongoose.Schema(
 
       firstName: {
             type: String,
-            required: true  
+            required: true
       },
 
-      lastName: {   
+      lastName: {
             type: String,
-            required: true  
+            required: true
       },
 
       password: {
@@ -26,7 +26,7 @@ const UserSchema = mongoose.Schema(
       role : {
             type: String,
             required: true,
-             default: "customer" 
+            default: "manager"
       }
    }
 );

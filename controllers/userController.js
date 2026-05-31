@@ -28,7 +28,7 @@ export const saveUser = async (req, res) => {
 
     const existEmail = await User.findOne({ email: req.body.email });
 
-    if (existEmail != null) {  
+    if (existEmail != null) { 
         return res.status(400).json({
             status: "error",
             message: "Email already exists"
